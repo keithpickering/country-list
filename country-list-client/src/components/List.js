@@ -37,27 +37,27 @@ class List extends Component {
         const bClicks = this.state.clicks.clicks[b.alpha3Code] || 0;
         return bClicks - aClicks;
       });
-    }
     
-    for (let i = 0; i < countries.length; i++) {
-      // Skip if this country doesn't match the search term
-      const countryName = countries[i].name.toLowerCase();
-      if (
-        this.state.search.length &&
-        countryName.indexOf(this.state.search.toLowerCase()) === -1
-      ) {
-        continue;
-      }
+      for (let i = 0; i < countries.length; i++) {
+        // Skip if this country doesn't match the search term
+        const countryName = countries[i].name.toLowerCase();
+        if (
+          this.state.search.length &&
+          countryName.indexOf(this.state.search.toLowerCase()) === -1
+        ) {
+          continue;
+        }
 
-      if (this.props.countries[i] && this.state.clicks.clicks) {
-        const countryId = countries[i].alpha3Code;
-        items.push(
-          <ListItem
-            key={countryId}
-            country={countries[i]}
-            clicks={this.state.clicks.clicks[countryId] || 0}
-          />
-        );
+        if (this.props.countries[i]) {
+          const countryId = countries[i].alpha3Code;
+          items.push(
+            <ListItem
+              key={countryId}
+              country={countries[i]}
+              clicks={this.state.clicks.clicks[countryId] || 0}
+            />
+          );
+        }
       }
     }
 
