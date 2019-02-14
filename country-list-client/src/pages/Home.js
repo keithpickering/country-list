@@ -19,7 +19,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="App">
         <h1 className="c-page-title">Amazing Countries</h1>

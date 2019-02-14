@@ -58,8 +58,10 @@
     position: absolute;
     top: -$spacing-tiny;
     right: -$spacing-tiny;
-    width: $spacing;
-    border-radius: 50%;
+    padding: 0 $spacing-tiny;
+    width: auto;
+    min-width: $spacing;
+    border-radius: $spacing;
     background: $color-accent;
     font-weight: bold;
     color: white;

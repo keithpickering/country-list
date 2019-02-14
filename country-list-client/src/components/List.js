@@ -20,10 +20,20 @@ class List extends Component {
 
   createListItems = () => {
     let items = [];
+
+    // Sort countries by click count
+    let countries = this.props.countries;
+    if (this.state.clicks.clicks) {
+      countries = countries.sort((a, b) => {
+        const aClicks = this.state.clicks.clicks[a.alpha3Code] || 0;
+        const bClicks = this.state.clicks.clicks[b.alpha3Code] || 0;
+        return bClicks - aClicks;
+      });
+    }
     
-    for (let i = 0; i < this.props.countries.length; i++) {
+    for (let i = 0; i < countries.length; i++) {
       // Skip if this country doesn't match the search term
-      const countryName = this.props.countries[i].name.toLowerCase();
+      const countryName = countries[i].name.toLowerCase();
       if (
         this.state.search.length &&
         countryName.indexOf(this.state.search.toLowerCase()) === -1
@@ -32,11 +42,11 @@ class List extends Component {
       }
 
       if (this.props.countries[i] && this.state.clicks.clicks) {
-        const countryId = this.props.countries[i].alpha3Code;
+        const countryId = countries[i].alpha3Code;
         items.push(
           <ListItem
             key={countryId}
-            country={this.props.countries[i]}
+            country={countries[i]}
             clicks={this.state.clicks.clicks[countryId] || 0}
           />
         );

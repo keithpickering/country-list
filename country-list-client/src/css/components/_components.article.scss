@@ -1,0 +1,15 @@
+//
+// ARTICLE
+//
+
+
+.c-article {
+  padding: $spacing;
+  background: $color-light;
+  box-shadow: $box-shadow;
+  color: $color-dark;
+
+  @include mq($from: tablet) {
+    padding: $spacing-large;
+  }
+}

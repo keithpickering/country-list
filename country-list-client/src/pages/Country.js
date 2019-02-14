@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Country extends Component {
   // Initialize state
@@ -26,15 +27,71 @@ class Country extends Component {
     .catch(err => console.error(err));
   }
 
-  // Return country info
+  createStatItems = (stats) => {
+    let items = [];
 
+    for (let i = 0; i < stats.length; i++) {
+      items.push(
+        <div key={i} className="c-stats__item">
+          <dt className="c-stats__term">{stats[i].term}</dt>
+          <dd className="c-stats__def">{stats[i].def}</dd>
+        </div>
+      );
+    }
+
+    return items;
+  }
 
   render() {
     const country = this.state.country;
 
+    // Get list of languages
+    let languages = '';
+    if (country.languages) {
+      for (let i = 0; i < country.languages.length; i++) {
+        languages += country.languages[i].name;
+        if (i < country.languages.length - 1)
+          languages += ', ';
+      }
+    }
+
     return (
       <div className="App">
-        <h1>{ country.name }</h1>
+        <h1 className="c-page-title">
+          <img src={country.flag} alt="Flag" className="c-page-title__flag" />
+          <span>{country.name}</span>
+        </h1>
+
+        <article className="c-article">
+          <dl className="c-stats">
+            {this.createStatItems([
+              {
+                term: 'Capital',
+                def: country.capital || 'N/A'
+              },
+              {
+                term: 'Population',
+                def: country.population ?
+                     country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                     : 'N/A'
+              },
+              {
+                term: 'Languages',
+                def: languages || 'N/A'
+              },
+              {
+                term: 'Region',
+                def: country.region || 'N/A'
+              }
+            ])}
+          </dl>
+
+          <div className="u-text-center">
+            <Link to="/" className="c-btn">
+              Go Back
+            </Link>
+          </div>
+        </article>
       </div>
     );
   }

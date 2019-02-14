@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import './App.scss';
 
 // Pages
@@ -17,7 +18,9 @@ class App extends Component {
 
     return (
       <Switch>
-        <App />
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
       </Switch>
     );
   }

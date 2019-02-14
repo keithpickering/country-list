@@ -1,0 +1,23 @@
+//
+// BUTTON
+//
+
+
+.c-btn {
+  display: inline-block;
+  padding: $spacing-small $spacing;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: $radius;
+  background: $color-accent;
+  color: white;
+  box-shadow: $box-shadow;
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    background: lighten($color-accent, 5%);
+    box-shadow: $box-shadow-large;
+  }
+}

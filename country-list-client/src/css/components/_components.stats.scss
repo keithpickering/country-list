@@ -1,0 +1,45 @@
+//
+// STAT BLOCKS
+//
+
+
+.c-stats {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    padding: $spacing;
+    margin-bottom: $spacing;
+    width: 100%;
+    text-align: center;
+
+    @include mq($from: tablet) {
+      width: 50%;
+    }
+  }
+
+  &__term {
+    position: relative;
+    padding-bottom: $spacing-tiny;
+    margin-bottom: $spacing;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 2px;
+      width: $spacing-large;
+      background: darken($color-light, 7%);
+    }
+  }
+
+  &__def {
+    margin: 0;
+    font-weight: lighter;
+    @include inuit-font-size($inuit-font-size-h2);
+  }
+}
