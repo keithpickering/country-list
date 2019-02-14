@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from '../components/Loading';
 import ListItem from '../components/ListItem';
 
 class List extends Component {
@@ -6,7 +7,8 @@ class List extends Component {
     super(props);
     this.state = {
       clicks: {},
-      search: ''
+      search: '',
+      loading: true
     }
 
     this.handleSearch = this.handleSearch.bind(this);
@@ -15,7 +17,13 @@ class List extends Component {
   componentWillMount() {
     fetch('/api/getClicks/')
     .then(res => res.json())
-    .then(clicks => this.setState({ clicks }));
+    .then(clicks => this.setState({ clicks }))
+    .finally(() => {
+      // setTimeout fixes F.O.U.C - I'm sure there's a better way
+      setTimeout(() => {
+        this.setState({ loading: false });
+      }, 100);
+    });
   }
 
   createListItems = () => {
@@ -63,27 +71,33 @@ class List extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <form>
-          <label className="u-hidden-visually">
-            Search Countries:
-          </label>
+    if (this.state.loading) {
+      return (
+        <Loading />
+      );
+    } else {
+      return (
+        <div>
+          <form>
+            <label className="u-hidden-visually">
+              Search Countries:
+            </label>
 
-          <input
-            type="text"
-            placeholder="Search Countries"
-            className="o-text-input"
-            value={this.state.search}
-            onChange={this.handleSearch}
-          />
-        </form>
+            <input
+              type="text"
+              placeholder="Search Countries"
+              className="o-text-input"
+              value={this.state.search}
+              onChange={this.handleSearch}
+            />
+          </form>
 
-        <ul className="c-country-list">
-          {this.createListItems()}
-        </ul>
-      </div>
-    );
+          <ul className="c-country-list">
+            {this.createListItems()}
+          </ul>
+        </div>
+      );
+    }
   }
 }
 

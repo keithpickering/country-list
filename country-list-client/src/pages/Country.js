@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 class Country extends Component {
   // Initialize state
@@ -7,7 +8,8 @@ class Country extends Component {
     super(props);
     this.state = {
       country: [],
-      valid: true
+      valid: true,
+      loading: true
     }
   }
 
@@ -18,9 +20,14 @@ class Country extends Component {
     fetch('https://restcountries.eu/rest/v2/alpha/'+countryId)
     .then(res => res.json())
     .then(country => this.setState({ country }))
-    .then(() => {
-      if (!this.state.country.name)
-        this.setState({ valid: false })
+    .finally(() => {
+      // setTimeout fixes F.O.U.C - I'm sure there's a better way
+      setTimeout(() => {
+        this.setState({ loading: false });
+
+        if (!this.state.country.name)
+          this.setState({ valid: false });
+      }, 100);
     });
   }
 
@@ -42,7 +49,11 @@ class Country extends Component {
   render() {
     const country = this.state.country;
 
-    if (this.state.valid) {
+    if (this.state.loading) {
+      return (
+        <Loading />
+      );
+    } else if (this.state.valid) {
       // Get list of languages
       let languages = '';
       if (country.languages) {
