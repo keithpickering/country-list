@@ -1,0 +1,18 @@
+//
+// TEXT INPUT
+//
+
+
+.o-text-input {
+  margin-bottom: $spacing;
+  padding: $spacing-small;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  border-radius: $radius;
+  border: 2px solid darken($color-light, 8%);
+  outline: 0;
+
+  &:focus {
+    border-color: $color-primary-light;
+  }
+}

@@ -22,7 +22,7 @@ class Home extends Component {
     console.log(this.state)
     return (
       <div className="App">
-        <h1>Countries</h1>
+        <h1 className="c-page-title">Amazing Countries</h1>
 
         <List countries={this.state.countries} />
       </div>

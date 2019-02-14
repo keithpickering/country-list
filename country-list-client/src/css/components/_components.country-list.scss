@@ -39,14 +39,17 @@
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
-    color: white;
-    background: darken($color-primary, 7%);
-    box-shadow: $box-shadow;
+    color: $color-dark;
+    background: $color-light;
+    border: 2px solid $color-primary-light;
+    border-radius: $radius;
+    //box-shadow: $box-shadow;
     font-weight: 700;
+    transition: $transition;
     @include inuit-font-size($inuit-font-size-h6, $spacing-small);
 
     &:hover {
-      background: darken($color-primary, 6%);
+      //background: darken($color-primary, 6%);
       box-shadow: $box-shadow-large;
     }
   }
@@ -59,7 +62,7 @@
     border-radius: 50%;
     background: $color-accent;
     font-weight: bold;
-    box-shadow: $box-shadow;
+    color: white;
     @include inuit-font-size($inuit-font-size-h6, $spacing);
   }
 }

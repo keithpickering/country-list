@@ -4,7 +4,8 @@
 
 
 body {
+  padding-bottom: $spacing-large;
   font-family: "Montserrat", sans-serif;
-  background: $color-primary;
-  color: $color-body-text;
+  background: darken($color-light, 2.5%);
+  color: $color-dark;
 }

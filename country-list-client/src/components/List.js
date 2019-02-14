@@ -5,8 +5,11 @@ class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicks: {}
+      clicks: {},
+      search: ''
     }
+
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentWillMount() {
@@ -19,6 +22,15 @@ class List extends Component {
     let items = [];
     
     for (let i = 0; i < this.props.countries.length; i++) {
+      // Skip if this country doesn't match the search term
+      const countryName = this.props.countries[i].name.toLowerCase();
+      if (
+        this.state.search.length &&
+        countryName.indexOf(this.state.search.toLowerCase()) === -1
+      ) {
+        continue;
+      }
+
       if (this.props.countries[i] && this.state.clicks.clicks) {
         const countryId = this.props.countries[i].alpha3Code;
         items.push(
@@ -34,11 +46,33 @@ class List extends Component {
     return items;
   }
 
+  handleSearch = (e) => {
+    this.setState({
+      search: e.target.value
+    });
+  }
+
   render() {
     return (
-      <ul className="c-country-list">
-        {this.createListItems()}
-      </ul>
+      <div>
+        <form>
+          <label className="u-hidden-visually">
+            Search Countries:
+          </label>
+
+          <input
+            type="text"
+            placeholder="Search Countries"
+            className="o-text-input"
+            value={this.state.search}
+            onChange={this.handleSearch}
+          />
+        </form>
+
+        <ul className="c-country-list">
+          {this.createListItems()}
+        </ul>
+      </div>
     );
   }
 }

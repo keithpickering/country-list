@@ -1,0 +1,21 @@
+//
+// PAGE TITLE
+//
+
+
+.c-page-title {
+  margin-bottom: $spacing;
+  padding-left: $spacing;
+  padding-right: $spacing;
+  padding-top: $spacing-large;
+  padding-bottom: $spacing-large;
+  text-align: center;
+  border-radius: 0 0 $radius $radius;
+  background: $color-primary;
+  color: white;
+  @include inuit-font-size($inuit-font-size-h1);
+
+  @include mq($from: tablet) {
+    @include inuit-font-size($inuit-font-size-alpha);
+  }
+}
