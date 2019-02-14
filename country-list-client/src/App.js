@@ -6,13 +6,15 @@ import './App.scss';
 // Pages
 import Home from './pages/Home';
 import Country from './pages/Country';
+import Error from './pages/Error';
 
 class App extends Component {
   render() {
     const App = () => (
       <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/country/:countryId' component={Country} />
+        <Route exact path="/" component={Home} />
+        <Route path="/country/:countryId" component={Country} />
+        <Route path="*" component={Error} />
       </Switch>
     );
 
