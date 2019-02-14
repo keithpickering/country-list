@@ -33,6 +33,7 @@ $inuit-font-size-alpha: $spacing-large;
 // ELEMENTS
 @import "../node_modules/inuitcss/elements/elements.page";
 @import "css/elements/elements.page";
+@import "css/elements/elements.links";
 @import "../node_modules/inuitcss/elements/elements.headings";
 @import "../node_modules/inuitcss/elements/elements.images";
 
@@ -55,4 +56,5 @@ $inuit-font-size-alpha: $spacing-large;
 @import "css/utilities/utilities.text";
 @import "../node_modules/inuitcss/utilities/utilities.widths";
 @import "../node_modules/inuitcss/utilities/utilities.headings";
+@import "../node_modules/inuitcss/utilities/utilities.spacings";
 @import "../node_modules/inuitcss/utilities/utilities.hide";

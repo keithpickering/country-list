@@ -1,0 +1,18 @@
+//
+// LINKS
+//
+
+
+a,
+a:visited {
+  font-weight: bold;
+  text-decoration: none;
+  color: $color-primary;
+  border-bottom: 2px solid darken($color-light, 8%);
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    border-color: rgba($color-primary, 0.75);
+  }
+}

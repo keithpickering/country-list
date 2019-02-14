@@ -95,6 +95,12 @@ class Country extends Component {
               ])}
             </dl>
 
+            <div className="u-text-center u-margin-bottom-large">
+              <a href={'https://en.wikipedia.org/wiki/'+country.name}>
+                More about {country.name}
+              </a>
+            </div>
+
             <div className="u-text-center">
               <Link to="/" className="c-btn">
                 Go Back

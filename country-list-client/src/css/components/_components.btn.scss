@@ -3,12 +3,14 @@
 //
 
 
-.c-btn {
+.c-btn,
+a.c-btn {
   display: inline-block;
   padding: $spacing-small $spacing;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
+  border: 0;
   border-radius: $radius;
   background: $color-accent;
   color: white;
