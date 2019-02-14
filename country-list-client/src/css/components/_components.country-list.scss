@@ -43,13 +43,12 @@
     background: $color-light;
     border: 2px solid $color-primary-light;
     border-radius: $radius;
-    //box-shadow: $box-shadow;
     font-weight: 700;
     transition: $transition;
     @include inuit-font-size($inuit-font-size-h6, $spacing-small);
 
     &:hover {
-      //background: darken($color-primary, 6%);
+      border-color: lighten($color-accent, 20%);
       box-shadow: $box-shadow-large;
     }
   }

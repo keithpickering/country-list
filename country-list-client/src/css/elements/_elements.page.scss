@@ -4,6 +4,7 @@
 
 
 body {
+  visibility: visible !important; // Quick fix for F.O.U.C.
   padding-bottom: $spacing-large;
   font-family: "Montserrat", sans-serif;
   background: darken($color-light, 2.5%);
