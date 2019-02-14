@@ -27,7 +27,7 @@ class Country extends Component {
 
         if (!this.state.country.name)
           this.setState({ valid: false });
-      }, 100);
+      }, 300);
     });
   }
 
