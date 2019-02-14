@@ -1,0 +1,65 @@
+//
+// COUNTRY LIST
+//
+
+
+.c-country-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    width: calc(100% - #{$spacing});
+    height: $spacing*4;
+
+    @include mq($from: tablet) {
+      width: calc(33.33% - #{$spacing});
+    }
+
+    @include mq($from: desktop) {
+      width: calc(20% - #{$spacing});
+    }
+  }
+}
+
+
+.c-country {
+  position: relative;
+  margin: $spacing-small;
+
+  > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing;
+    width: 100%;
+    height: $spacing*4;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    background: darken($color-primary, 7%);
+    box-shadow: $box-shadow;
+    font-weight: 700;
+    @include inuit-font-size($inuit-font-size-h6, $spacing-small);
+
+    &:hover {
+      background: darken($color-primary, 6%);
+      box-shadow: $box-shadow-large;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -$spacing-tiny;
+    right: -$spacing-tiny;
+    width: $spacing;
+    border-radius: 50%;
+    background: $color-accent;
+    font-weight: bold;
+    box-shadow: $box-shadow;
+    @include inuit-font-size($inuit-font-size-h6, $spacing);
+  }
+}
