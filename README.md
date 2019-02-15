@@ -24,7 +24,7 @@ You can run the project locally like so:
 ### Production mode
 
 1. Run `npm install` from the root if you haven't already.
-2. Set the Node server's `NODE-ENV` environment variable to `production`.
+2. Set the Node server's `NODE_ENV` environment variable to `production`.
 3. Run `npm run build` from the `country-list-client` directory to create a production build.
 4. Run `npm start` from the root directory to start the Node server.
 5. Navigate to <a href="http://localhost:5000/">http://localhost:5000</a> to view the final result.
