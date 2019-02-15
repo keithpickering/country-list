@@ -21,6 +21,10 @@ class Country extends Component {
     .then(res => res.json())
     .then(country => this.setState({ country }))
     .finally(() => {
+      // Preload flag image
+      const img = new Image();
+      img.src = this.state.country.flag;
+
       // setTimeout fixes F.O.U.C - I'm sure there's a better way
       setTimeout(() => {
         this.setState({ loading: false });
