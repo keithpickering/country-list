@@ -16,3 +16,35 @@
     border-color: $color-primary-light;
   }
 }
+
+.o-text-input-wrap {
+  margin-bottom: $spacing-small;
+
+  > .o-text-input {
+    margin-bottom: $spacing-small;
+  }
+
+  > .c-btn {
+    display: block;
+    width: 100%;
+  }
+
+  @include mq($from: tablet) {
+    display: flex;
+    margin-bottom: 0;
+
+    > .o-text-input,
+    > .c-btn {
+      height: $spacing*2;
+    }
+
+    > .o-text-input {
+      margin-right: $spacing-small;
+    }
+
+    > .c-btn {
+      display: inline-block;
+      width: auto;
+    }
+  }
+}

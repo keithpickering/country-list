@@ -36,6 +36,13 @@ app.post('/api/addClick/:countryId', (req, res) => {
 });
 
 
+// Reset all click counts
+app.post('/api/resetClicks', (req, res) => {
+  req.session.clicks = {};
+  res.end();
+});
+
+
 // Return all countries' click counts
 app.get('/api/getClicks', (req, res) => {
   // Create click session if necessary

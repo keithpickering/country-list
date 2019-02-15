@@ -7,15 +7,19 @@
 a.c-btn {
   display: inline-block;
   padding: $spacing-small $spacing;
+  white-space: nowrap;
   text-decoration: none;
   text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   border: 0;
+  outline: 0;
   border-radius: $radius;
   background: $color-accent;
   color: white;
   box-shadow: $box-shadow;
   transition: $transition;
+  cursor: pointer;
 
   &:hover,
   &:focus {

@@ -15,6 +15,10 @@ class List extends Component {
   }
 
   componentWillMount() {
+    this.getClicks();
+  }
+
+  getClicks = () => {
     fetch('/api/getClicks/')
     .then(res => res.json())
     .then(clicks => this.setState({ clicks }))
@@ -24,6 +28,13 @@ class List extends Component {
         this.setState({ loading: false });
       }, 100);
     });
+  }
+
+  resetClicks = () => {
+    fetch('/api/resetClicks/', {
+      method: 'POST'
+    })
+    .then(res => this.getClicks());
   }
 
   createListItems = () => {
@@ -78,7 +89,7 @@ class List extends Component {
     } else {
       return (
         <div>
-          <form>
+          <div className="o-text-input-wrap">
             <label className="u-hidden-visually">
               Search Countries:
             </label>
@@ -90,7 +101,14 @@ class List extends Component {
               value={this.state.search}
               onChange={this.handleSearch}
             />
-          </form>
+
+            <button
+              className="c-btn"
+              onClick={this.resetClicks}
+            >
+              Reset Clicks
+            </button>
+          </div>
 
           <ul className="c-country-list">
             {this.createListItems()}
