@@ -34,6 +34,5 @@ You can run the project locally like so:
 There are a number of improvements that could be made with more time allotted:
 
 * The app compiles App.scss into a general stylesheet used by both pages. I'd like to figure out the best practices for generating these styles on a per-component basis while still taking advantage of SASS (and my preferred CSS framework)
-* The Loading indicator component uses styles that are included inline in `index.html`. This gives it quick access to the styles, but feels messy. This ties in with the previous point; I'd like to figure out a way to load CSS per-component.
 * Some animations and/or transitions between states would make the experience more fluid. In particular, the country cards should ideally animate when they're filtered. There seem to be a variety of libraries that aim to solve this (<a href="https://github.com/joshwcomeau/react-flip-move">this one seems nice, if unmaintained</a>).
 * Development mode has some FOUC (Flash of Unstyled Content) issues. FOUC is a known and recent issue with the `create-react-app` library, and only exists in development builds. <a href="https://github.com/facebook/create-react-app/issues/6399">More info</a>
