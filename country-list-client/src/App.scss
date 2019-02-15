@@ -45,6 +45,7 @@ $inuit-font-size-alpha: $spacing-large;
 
 
 // COMPONENTS
+@import "css/components/components.loading";
 @import "css/components/components.page-title";
 @import "css/components/components.country-list";
 @import "css/components/components.article";
