@@ -2,17 +2,12 @@ const express = require('express'),
       path    = require('path'),
       session = require('express-session');
 
-const app      = express(),
-      port     = process.env.PORT || 5000,
-      envType  = process.env.NODE_ENV || 'development';
+const app = express();
 
-let staticFolder = 'public';
-if (envType === 'production') {
-  staticFolder = 'build';
-}
+const port = process.env.PORT || 5000;
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'country-list-client/'+staticFolder)));
+app.use(express.static(path.join(__dirname, 'country-list-client/build')));
 
 // Set up session
 app.use(session({
@@ -75,7 +70,7 @@ app.get('/api/getClicks/:countryId', (req, res) => {
 
 // Other requests
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'country-list-client/'+staticFolder+'/index.html'));
+  res.sendFile(path.join(__dirname, 'country-list-client/build/index.html'));
 });
 
 // Listen to defined port
