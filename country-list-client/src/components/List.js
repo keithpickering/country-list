@@ -23,10 +23,7 @@ class List extends Component {
     .then(res => res.json())
     .then(clicks => this.setState({ clicks }))
     .finally(() => {
-      // setTimeout fixes F.O.U.C - I'm sure there's a better way
-      setTimeout(() => {
-        this.setState({ loading: false });
-      }, 100);
+      this.setState({ loading: false });
     });
   }
 

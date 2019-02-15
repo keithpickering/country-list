@@ -25,13 +25,10 @@ class Country extends Component {
       const img = new Image();
       img.src = this.state.country.flag;
 
-      // setTimeout fixes F.O.U.C - I'm sure there's a better way
-      setTimeout(() => {
-        this.setState({ loading: false });
+      this.setState({ loading: false });
 
-        if (!this.state.country.name)
-          this.setState({ valid: false });
-      }, 300);
+      if (!this.state.country.name)
+        this.setState({ valid: false });
     });
   }
 
